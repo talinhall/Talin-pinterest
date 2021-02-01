@@ -15,8 +15,12 @@ export default class SearchBar extends React.Component{
         return(
 
             <form onSubmit={this.handleFormSubmit} className="ui  left icon input">
-                <input value= {this.state.term} onChange= {(e) => this.setState({term:e.target.value})} type="text" placeholder="Search"/>
-               
+                <input 
+                    value= {this.state.term} 
+                    onChange= {(e) => this.setState({term:e.target.value})} 
+                    type="text" 
+                    placeholder="Search"
+                />
                 <i className="large search icon"></i>
             </form>
 
