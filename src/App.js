@@ -1,25 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+import Header from './components/Header';
+import HomePage from './components/HomePage';
+import TodayPage from './components/TodayPage';
+import FollowingPage from './components/FollowingPage';
+import ProfilePage from './components/ProfilePage';
+import unsplash from './api/unsplash';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+
+class App extends React.Component {
+    state = {images:[]};
+    componentDidMount(){
+        this.onSearchBarSubmit('adventure');
+    };
+    onSearchBarSubmit= async(term) =>{
+        const response = await unsplash.get('search/photos', {
+            params: {query:term, per_page:30, orientation:'portrait', color:'black'}
+        })
+        this.setState({images:response.data.results})
+    };
+    render(){
+        return(
+            <div style = {{padding: "1% 2%"}} >
+                <BrowserRouter>
+                        <Header searchBarSubmited = {this.onSearchBarSubmit}/>
+                        <Route path="/" exact render={props => <HomePage images={this.state.images} />}/>
+                        <Route path="/today" exact component = {TodayPage}/>
+                        <Route path="/following" exact component = {FollowingPage}/>
+                        <Route path="/profile" exact component = {ProfilePage}/>
+                </BrowserRouter>
+            </div>
+        );
+    }
+};
+
 
 export default App;

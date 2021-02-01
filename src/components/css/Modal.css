@@ -1,0 +1,23 @@
+.ui.modal{
+    margin-left:73%;
+    margin-top:80px;
+    width:24%;
+    height: 100%;
+    /* box-shadow:none; */
+}
+
+.header.context{
+    font-size: 1.42857143rem;
+    font-weight: 900;
+    
+    /* text-align: center; */
+}
+.big.modal.context{
+    font-size: 3.4rem;
+    font-weight:800;
+    margin: 0 0 .4em;
+    line-height: 1.2;
+}
+.friend.searchbar{
+    width:95%;
+}

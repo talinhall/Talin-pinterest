@@ -1,0 +1,20 @@
+.image-list{
+    display:grid;
+    /* this says auto decide how many columns to put with a min width of 250px
+    and maximun 1fr(which makes it so they are all the same size) */
+    grid-template-columns: repeat(auto-fill,minmax(300px,1fr));
+    /* 0 pixals between each row and 10 px between each colum */
+    grid-gap: 1px 10px;
+    /* says how tall each cell is going to be. */
+    grid-auto-rows: 10px;
+}
+
+.image-list img {
+    width: 300px;
+    border-radius: 20px;
+    /* tells you how many cells each picture spans. this problem bc each pic diff sizes */
+    /* so  use this and grid auto rows to find out how long to make ecach picture. Can't do with css alone. 
+    Need to access the DOM using Refs */
+    /* grid-row-end: span 5; */
+    
+}
