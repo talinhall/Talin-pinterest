@@ -23,7 +23,8 @@ class App extends React.Component {
         return(
             <div style = {{padding: "1% 2%"}} >
                 <BrowserRouter>
-                        <Header searchBarSubmited = {this.onSearchBarSubmit}/>
+                        {/* <Header searchBarSubmited = {this.onSearchBarSubmit}/> */}
+                        <Route path="/"  render={props => <Header searchBarSubmited = {this.onSearchBarSubmit} />}/>
                         <Route path="/" exact render={props => <HomePage images={this.state.images} />}/>
                         <Route path="/today" exact component = {TodayPage}/>
                         <Route path="/following" exact component = {FollowingPage}/>

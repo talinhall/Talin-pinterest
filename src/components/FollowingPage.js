@@ -1,9 +1,11 @@
 import React from 'react';
 
-export default class FollowingPage extends React.Component{
-    render(){
-        return(
-            <div>Following Page</div>
-        );
-    }
+
+
+const FollowingPage = (props) =>{
+    return(
+        <div>Following Page</div>
+    );
 };
+
+export default FollowingPage;

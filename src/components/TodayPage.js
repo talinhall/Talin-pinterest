@@ -28,7 +28,9 @@ export default class TodayPage extends React.Component{
         let year = d.getFullYear();
         return `${m} ${day},  ${ year}`;
     };
+   
     componentDidMount = async() =>{
+        // const location = useLocation();
         const response = await unsplash.get('search/photos', {
             params: {query:'inspiration', per_page:10}
         })
