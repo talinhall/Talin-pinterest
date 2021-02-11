@@ -1,13 +1,15 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
 import unsplash from '../api/unsplash';
+import {linkChanges} from '../actions';
 import './css/TodayPage.css';
-// import './css/ImageGrid.css';
 
 
-export default class TodayPage extends React.Component{
+class TodayPage extends React.Component{
     state = {images:[]};
+
     dayDisplay = () =>{
         let d = new Date();
         let day = d.getDate();
@@ -30,14 +32,12 @@ export default class TodayPage extends React.Component{
     };
    
     componentDidMount = async() =>{
-        // const location = useLocation();
         const response = await unsplash.get('search/photos', {
             params: {query:'inspiration', per_page:10}
         })
         this.createImages(response.data.results);
-        // this.setState({images:response.data.results});
-
     };
+
     createImages = (images) =>{
         let imageList = images.map(image =>{
             return<ImageCard key = {image.id} image = {image} />
@@ -55,13 +55,13 @@ export default class TodayPage extends React.Component{
                 <div className= "end-statment-1">That's all for Today!</div>
                 <div className= "end-statment-2">Come back tomorrow for more inspiration</div>
                 <Link to ='/'> 
-                <div className= "home-button">
-                <button > Go To Home Feed</button>
-                </div>
-                
+                    <div className= "home-button">
+                        <button onClick = {() => this.props.linkChanges()} > Go To Home Feed</button>
+                    </div>
                 </Link>
-            </div>
-            
+            </div>  
         );
     }
 };
+
+export default connect(null, {linkChanges})(TodayPage);

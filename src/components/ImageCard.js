@@ -6,12 +6,11 @@ export default class ImageCard extends React.Component{
         this.state = {spans:0};
         this.imageRef = React.createRef();
     }
-    //only gets called after this componetn get rendered. 
+ 
     componentDidMount(){
-        // console.log(this.imageRef);
-        // //will see values of 0 beacsue we are console logging these up before
-        // //we even had a chance of loading the image up. so we do a callback on an image
-        // //load
+        //will see values of 0 beacsue we are console logging these up before
+        //we even had a chance of loading the image up. so we do a callback on an image
+        //load
         this.imageRef.current.addEventListener('load', this.setSpans);
     }
     setSpans = () =>{

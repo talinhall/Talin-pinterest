@@ -2,9 +2,10 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SearchBar from './SearchBar';
 import MessageModal from './MessageModal';
+import { connect } from 'react-redux';
 import './css/Header.css';
 
-export default class Header extends React.Component{
+class Header extends React.Component{
     constructor(props){
         super(props);
         this.state= {
@@ -12,11 +13,14 @@ export default class Header extends React.Component{
             activePath: window.location.pathname
         };
     };
-    
-    searchBarSubmited = (term) =>{
-        this.props.searchBarSubmited(term);
-    };
-    
+
+    componentDidUpdate(){
+        if(window.location.pathname !==this.state.activePath ){
+            this.setState({activePath:window.location.pathname});
+        }
+    }
+   
+
     render(){
         return (
             <div className = "header">
@@ -48,7 +52,8 @@ export default class Header extends React.Component{
                     > Following
                     </button>
                 </Link>
-                <SearchBar searchBarSubmited = {this.searchBarSubmited}/>
+                {/* <SearchBar searchBarSubmited = {this.searchBarSubmited}/> */}
+                <SearchBar />
                 <button><i className = " large bell icon"> </i></button>
                 <button onClick = {() => this.setState({showMessageModal: !this.state.showMessageModal})}>
                     <i className = " large comment alternate icon"> </i>
@@ -67,9 +72,15 @@ export default class Header extends React.Component{
                         <div className="item">New</div>
                     </div>
                 </div> */}
-                
-                
+                     
             </div>
         );
     }
 };
+
+const mapStateToProps = (state) =>{
+    return {linkChange: state.linkChange};
+ }
+export default connect(mapStateToProps)(Header); 
+
+

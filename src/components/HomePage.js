@@ -1,16 +1,27 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ImageCard from './ImageCard';
+import {fetchHomeImages} from '../actions'
 import './css/ImageGrid.css';
 
-const HomePage = (props) =>{
-   const images = props.images.map(image =>{
-      return<ImageCard key = {image.id} image = {image} />
-   });
-   return (
-      <div className = "image-list">{images}</div>
-   );
+class HomePage extends React.Component{
+   componentDidMount(){
+      this.props.fetchHomeImages('adventure');
+   };
    
+   render(){
+      const images = this.props.homeImages.map(image =>{
+         return<ImageCard key = {image.id} image = {image} />
+      });
+      return(
+         <div className = "image-list">{images}</div>
+      );
+   }
 };
 
 
-export default HomePage;
+const mapStateToProps = (state) =>{
+   return {homeImages: state.homeImages};
+}
+
+export default connect(mapStateToProps, {fetchHomeImages})(HomePage); 

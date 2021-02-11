@@ -1,16 +1,17 @@
 import React from 'react';
-// import {Link} from 'react-router-dom';
+import { connect } from 'react-redux';
+import {fetchHomeImages} from '../actions';
 import './css/SearchBar.css';
 
 
-export default class SearchBar extends React.Component{
+class SearchBar extends React.Component{
     state = {term: ''};
     handleFormSubmit = (e) =>{
         e.preventDefault();
-        this.props.searchBarSubmited(this.state.term);
-        // <Link to = "/"/>
+        // this.props.searchBarSubmited(this.state.term);
+        this.props.fetchHomeImages(this.state.term);
     };
-
+     
     render(){
         return(
 
@@ -27,3 +28,6 @@ export default class SearchBar extends React.Component{
         );
     }
 };
+
+
+export default connect(null, {fetchHomeImages})(SearchBar);
