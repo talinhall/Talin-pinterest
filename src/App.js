@@ -10,7 +10,7 @@ import ProfilePage from './components/ProfilePage';
 class App extends React.Component {
     render(){
         return(
-            <div style = {{padding: "1% 2%"}} >
+            <div style = {{padding: "0 2%"}} >
                 <BrowserRouter>
                         <Header />
                         {/* <Route path="/"  render={props => <Header searchBarSubmited = {this.onSearchBarSubmit} />}/> */}

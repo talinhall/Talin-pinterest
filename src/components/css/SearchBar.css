@@ -1,20 +1,18 @@
 
 .input{
    width:60%; 
+   height: 100%;
+   margin-top: 8px;
 }
 .ui.input>input {
+    width:60%; 
     border-radius: 40px ;
     background-color:#f0f1f2 ;
     border:none;
+    font-size:1.3em;
 }
 .ui.input>input:focus{
     background-color:#f0f1f2 ;
 }
-.search.icon{
-    color:black;
-}
 
-input{
-    font-size:1.5em;
-}
 
