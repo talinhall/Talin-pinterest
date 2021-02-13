@@ -6,6 +6,11 @@
 .bell.icon, .angle.down.icon, .comment.alternate.icon{
     color:grey;
 }
+.header{
+    padding:20px;
+    display:flex;
+    flex-direction:row;
+}
 
 button{
     border:none;
@@ -17,24 +22,22 @@ button{
     border-radius: 40px;
     border: none;
 } 
-.user{
-    padding:20px 25px ;
-}
+
 
 button:focus {outline:0;}
 
 button:hover{
     background-color:#f0f1f2; 
 }
-.button.active, .button.active:hover{
+
+.active button{
     background-color: black;
     color: white;
 }
-
-.header{
-    padding:20px;
-    display:flex;
-    flex-direction:row;
+.user{
+    padding:20px 25px ;
 }
+
+
 
 

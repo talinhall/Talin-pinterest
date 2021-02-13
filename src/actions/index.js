@@ -1,7 +1,6 @@
 import unsplash from '../api/unsplash';
 
 export const FETCH_HOME_IMAGES = 'FETCH_HOME_IMAGES';
-export const LINK_CHANGED = 'LINK_CHANGED';
 
 
 export const fetchHomeImages = (term) => async dispatch =>{
@@ -12,8 +11,3 @@ export const fetchHomeImages = (term) => async dispatch =>{
 
 };
 
-export const linkChanges = () => {
-    return {
-        type: LINK_CHANGED
-    };
-}
