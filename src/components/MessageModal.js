@@ -1,6 +1,6 @@
 import React from 'react';
 import './css/Modal.css';
-// import { Modal } from "react-bootstrap";
+import './css/MessageModal.css';
 
 class MessageModal extends React.Component{
     constructor(props){

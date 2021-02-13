@@ -7,9 +7,9 @@ import './css/SearchBar.css';
 class SearchBar extends React.Component{
     state = {term: ''};
     handleFormSubmit = (e) =>{
-        e.preventDefault();
-        // this.props.searchBarSubmited(this.state.term);
+        e.preventDefault(); 
         this.props.fetchHomeImages(this.state.term);
+        this.setState({term: ''});
     };
      
     render(){

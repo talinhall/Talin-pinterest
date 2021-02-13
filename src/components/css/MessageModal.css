@@ -1,0 +1,13 @@
+.header.context{
+    font-size: 1.42857143rem;
+    font-weight: 900;
+}
+.big.modal.context{
+    font-size: 3.4rem;
+    font-weight:800;
+    margin: 0 0 .4em;
+    line-height: 1.2;
+}
+.friend.searchbar{
+    width:95%;
+}

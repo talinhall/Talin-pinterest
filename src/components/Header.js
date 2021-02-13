@@ -2,6 +2,8 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 import SearchBar from './SearchBar';
 import MessageModal from './MessageModal';
+import UpdateModal from './UpdateModal';
+import SettingsModal from './SettingsModal';
 import { connect } from 'react-redux';
 import './css/Header.css';
 
@@ -10,6 +12,8 @@ class Header extends React.Component{
         super(props);
         this.state= {
             showMessageModal: false, 
+            showUpdateModal: false,
+            showSettingsModal: false,
             activePath: window.location.pathname
         };
     };
@@ -52,13 +56,15 @@ class Header extends React.Component{
                     > Following
                     </button>
                 </Link>
-                {/* <SearchBar searchBarSubmited = {this.searchBarSubmited}/> */}
                 <SearchBar />
-                <button><i className = " large bell icon"> </i></button>
-                <button onClick = {() => this.setState({showMessageModal: !this.state.showMessageModal})}>
+                <button onClick = {() => this.setState({showUpdateModal: !this.state.showUpdateModal, showMessageModal: false, showSettingsModal:false})}>
+                    <i className = " large bell icon"> </i>
+                </button>
+                
+                <button onClick = {() => this.setState({showMessageModal: !this.state.showMessageModal, showUpdateModal:false, showSettingsModal:false})}>
                     <i className = " large comment alternate icon"> </i>
                 </button>
-                {this.state.showMessageModal && <MessageModal showMessageModal= {this.state.showMessageModal} />}
+                
                 <Link to = "/profile">
                     <button 
                         className = {this.state.activePath==='/profile'? " user button active": "user"}
@@ -66,12 +72,15 @@ class Header extends React.Component{
                     >T
                     </button>
                 </Link>
-                {/* <div className="ui dropdown"> */}
-                    <button><i className = " large angle down icon"> </i></button>
-                    {/* <div className="menu">
-                        <div className="item">New</div>
-                    </div>
-                </div> */}
+                
+                <button 
+                    onClick = {() => this.setState({showSettingsModal: !this.state.showSettingsModal,showUpdateModal:false,showMessageModal: false})}
+                >
+                    <i className = " large angle down icon"> </i>
+                </button>
+                {this.state.showUpdateModal && <UpdateModal />}
+                {this.state.showMessageModal && <MessageModal  />}
+                {this.state.showSettingsModal && <SettingsModal  />}
                      
             </div>
         );

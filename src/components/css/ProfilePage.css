@@ -1,0 +1,38 @@
+.profile-btn{
+    background-color: #f0f1f2;
+    padding:30px 40px ;
+    margin-left: 45%;
+    font-size: 3.5rem;
+    border-radius: 50%;
+}
+.name-text{
+    margin:2% 0 2% 42%;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+.username{
+    margin-left:45%;
+    font-size:1.5rem;
+}
+.followers-status{
+    display: flex;
+    flex-direction: row;
+    font-size: 1.3rem;
+    margin: 1% 0 0 43%;
+}
+.num-following{
+    font-weight: bold;
+    margin-left: 1%;
+    cursor: pointer;
+}
+.profile-bottom-text{
+    font-size: 1.3rem;
+    margin: 10% 0 0 42%;
+}
+.ideas-btn{
+    margin:1% 0 0 46%;
+    background-color:#f0f1f2;
+}
+.ideas-btn:hover{
+    background-color:#d9d9d9;
+}
