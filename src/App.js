@@ -11,7 +11,6 @@ import ProfilePage from './components/ProfilePage';
 
 class App extends React.Component {
     componentDidMount(){
-        console.log("went in here");
         this.props.fetchHomeImages('adventure');
      };
     render(){

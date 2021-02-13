@@ -20,29 +20,18 @@ export default class Header extends React.Component{
         return (
             <div className = "header">
                 <Link to = "/">
-                    <button
-                        onClick = {()=> this.setState({activePath:'/'})}
-                    >
+                    <button>
                         <i className = " large plane icon"> </i>
                     </button>
                 </Link>
-                <NavLink to="/" exact>
-                    <button 
-                        onClick = {()=> this.setState({activePath:'/'})}
-                    > Home
-                    </button>
+                <NavLink to="/" exact className ="nav-bar-btn" >
+                    <button> Home</button>
                 </NavLink>
-                <NavLink to = "/today" >
-                    <button 
-                        onClick = {()=> this.setState({activePath:'/today'})}
-                    > Today
-                    </button>
+                <NavLink to = "/today"  className ="nav-bar-btn" >
+                    <button> Today</button>
                 </NavLink>
-                <NavLink to="/following">
-                    <button 
-                        onClick = {()=> this.setState({activePath:'/following'})}
-                    > Following
-                    </button>
+                <NavLink to="/following" className ="nav-bar-btn" >
+                    <button> Following</button>
                 </NavLink>
                 <SearchBar />
                 <button onClick = {() => this.setState({showUpdateModal: !this.state.showUpdateModal, showMessageModal: false, showSettingsModal:false})}>
@@ -53,10 +42,9 @@ export default class Header extends React.Component{
                     <i className = " large comment alternate icon"> </i>
                 </button>
                 
-                <NavLink to = "/profile">
+                <NavLink to = "/profile" className ="nav-bar-btn" >
                     <button 
                         className= "user"
-                        onClick = {()=> this.setState({activePath:'/profile'})}
                     >T
                     </button>
                 </NavLink>

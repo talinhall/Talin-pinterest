@@ -31,13 +31,11 @@ h1{
     font-weight: bold;
     margin: 10px 40%;
     line-height: 1.2;
-    /* width:20%; */
 }
 
 .home-button{
     margin-top: 40px;
     text-align: center;
-    /* color:rgb(211, 211, 211); */
 }
 .home-button button{
     background-color:#f2f2f2;

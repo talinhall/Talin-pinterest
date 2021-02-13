@@ -30,7 +30,7 @@ button:hover{
     background-color:#f0f1f2; 
 }
 
-.active button{
+.active.nav-bar-btn button{
     background-color: black;
     color: white;
 }
