@@ -15,7 +15,10 @@ class SearchBar extends React.Component{
     render(){
         return(
 
-            <form onSubmit={this.handleFormSubmit} className="ui  left icon input">
+            <form onSubmit={this.handleFormSubmit} 
+                className = {this.props.showyMobilNavBars? "ui left icon input":"disable ui left icon input"}
+                // className="ui  left icon input"
+            >
                 <input 
                     value= {this.state.term} 
                     onChange= {(e) => this.setState({term:e.target.value})} 
@@ -28,6 +31,8 @@ class SearchBar extends React.Component{
         );
     }
 };
+const mapStateToProps = (state) =>{
+    return {showyMobilNavBars: state.displayMobilNavBar};
+ }
 
-
-export default connect(null, {fetchHomeImages})(SearchBar);
+export default connect(mapStateToProps, {fetchHomeImages})(SearchBar);

@@ -1,12 +1,14 @@
 import React from 'react';
 import {Link, NavLink} from 'react-router-dom';
+import { connect } from 'react-redux';
+import {displayMobilNavBar} from '../actions';
 import SearchBar from './SearchBar';
 import MessageModal from './MessageModal';
 import UpdateModal from './UpdateModal';
 import SettingsModal from './SettingsModal';
 import './css/Header.css';
 
-export default class Header extends React.Component{
+class Header extends React.Component{
     constructor(props){
         super(props);
         this.state= {
@@ -17,32 +19,51 @@ export default class Header extends React.Component{
     };
 
     render(){
+        console.log(this.props.showyMobilNavBars);
         return (
             <div className = "header">
-                <Link to = "/">
-                    <button>
-                        <i className = " large plane icon"> </i>
+                <div className = " mobil-menu-top">
+                    <Link to = "/">
+                        <button>
+                            <i className = " large plane icon"> </i>
+                        </button>
+                    </Link>
+                    <button className = "mobile-menu" 
+                        onClick = {()=> this.props.displayMobilNavBar()}> 
+                        <i className = " list icon"> </i>
                     </button>
-                </Link>
-                <NavLink to="/" exact className ="nav-bar-btn" >
+                </div >
+                <NavLink to="/" exact 
+                    className = {this.props.showyMobilNavBars ? "nav-bar-btn display":"nav-bar-btn" }
+                >
                     <button> Home</button>
                 </NavLink>
-                <NavLink to = "/today"  className ="nav-bar-btn" >
+                <NavLink to = "/today"  
+                    className = {this.props.showyMobilNavBars ? "nav-bar-btn display":"nav-bar-btn" }
+                >
                     <button> Today</button>
                 </NavLink>
-                <NavLink to="/following" className ="nav-bar-btn" >
+                <NavLink to="/following" 
+                    className = {this.props.showyMobilNavBars ? "nav-bar-btn display":"nav-bar-btn" }
+                >
                     <button> Following</button>
                 </NavLink>
                 <SearchBar />
-                <button onClick = {() => this.setState({showUpdateModal: !this.state.showUpdateModal, showMessageModal: false, showSettingsModal:false})}>
+                <button 
+                    className = "nav-bar-modal-btn"
+                    onClick = {() => this.setState({showUpdateModal: !this.state.showUpdateModal, showMessageModal: false, showSettingsModal:false})}>
                     <i className = " large bell icon"> </i>
                 </button>
                 
-                <button onClick = {() => this.setState({showMessageModal: !this.state.showMessageModal, showUpdateModal:false, showSettingsModal:false})}>
+                <button 
+                    className = "nav-bar-modal-btn"
+                    onClick = {() => this.setState({showMessageModal: !this.state.showMessageModal, showUpdateModal:false, showSettingsModal:false})}>
                     <i className = " large comment alternate icon"> </i>
                 </button>
                 
-                <NavLink to = "/profile" className ="nav-bar-btn" >
+                <NavLink to = "/profile" 
+                    className = {this.props.showyMobilNavBars ? "nav-bar-btn display":"nav-bar-btn" }
+                >
                     <button 
                         className= "user"
                     >T
@@ -50,10 +71,12 @@ export default class Header extends React.Component{
                 </NavLink>
                 
                 <button 
+                    className = "nav-bar-modal-btn"
                     onClick = {() => this.setState({showSettingsModal: !this.state.showSettingsModal,showUpdateModal:false,showMessageModal: false})}
                 >
                     <i className = " large angle down icon"> </i>
                 </button>
+                
                 {this.state.showUpdateModal && <UpdateModal />}
                 {this.state.showMessageModal && <MessageModal  />}
                 {this.state.showSettingsModal && <SettingsModal  />}
@@ -62,6 +85,11 @@ export default class Header extends React.Component{
         );
     }
 };
+const mapStateToProps = (state) =>{
+    return {showyMobilNavBars: state.displayMobilNavBar};
+ }
+
+export default connect(mapStateToProps, {displayMobilNavBar})(Header);
 
 
 

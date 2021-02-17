@@ -38,6 +38,35 @@ button:hover{
     padding:20px 25px ;
 }
 
+.mobile-menu{
+    display:none;
+}
+
+@media screen and (max-width:800px) {
+    .mobile-menu {
+        display: block;
+    }
+    .mobil-menu-top{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .header{
+        flex-direction: column;;
+    }
+    .nav-bar-btn button ,.nav-bar-modal-btn {
+        display: none;
+    }
+    .nav-bar-btn.display button{
+        display: block;
+        border-radius: 0px;
+        width: 100%;
+    }
+    
+  }
+  
+
+
 
 
 
