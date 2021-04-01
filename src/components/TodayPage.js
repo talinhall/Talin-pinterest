@@ -50,8 +50,10 @@ export default class TodayPage extends React.Component{
                 <h2> {this.dayDisplay()} </h2>
                 <h1>Daily inspiration</h1>
                 <div className = "image-list-today">{this.state.images}</div>
-                <div className= "end-statment-1">That's all for Today!</div>
-                <div className= "end-statment-2">Come back tomorrow for more inspiration</div>
+                <div className= "end-statment-1">That's all for Today!</div> 
+                <div className= "end-statment-2">Come back tomorrow for
+                <div> more inspiration</div>
+                </div>
                 <Link to ='/'> 
                     <div className= "home-button">
                         <button  > Go To Home Feed</button>

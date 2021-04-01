@@ -1,8 +1,8 @@
 .ui.modal{
-    margin-left:80%;
-    margin-top:80px;
+    position:fixed;
+    right:0;
     width:300px;
-    height: 30%;
+    height: 40%;
     border-radius: 20px;
 }
 .settings-modal-btn{
@@ -14,4 +14,7 @@
     text-align: left;
     overflow:auto;
     font-weight: 700;
+}
+.settings.content{
+    margin-top:30px;
 }

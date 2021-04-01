@@ -2,7 +2,21 @@
     width:400px;
     height:100%;
     border-radius: 50px;
-    transform: translate(-100px, 0);
+    position:fixed;
+    right:0;
 }
+.close-modal-btn{
+    border-radius:0px;
+    padding: 10px 10px;
+    margin:20px;
+    float:right;
+}
+
+@media screen and (max-width:600px) {
+    .full.ui.modal{
+        display:none;
+    }
+}
+
 
 

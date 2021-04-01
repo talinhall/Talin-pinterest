@@ -18,9 +18,21 @@ class Header extends React.Component{
         };
     };
 
+    closeMessageModal = () => {
+        this.setState({showMessageModal:false});
+    }
+
+    closeUpdateModal = () => {
+        this.setState({showUpdateModal:false});
+    }
+
+    closeSettingsModal = () => {
+        this.setState({showSettingsModal:false});
+    }
+
     render(){
-        console.log(this.props.showyMobilNavBars);
         return (
+         <div>
             <div className = "header">
                 <div className = " mobil-menu-top">
                     <Link to = "/">
@@ -76,12 +88,12 @@ class Header extends React.Component{
                 >
                     <i className = " large angle down icon"> </i>
                 </button>
-                
-                {this.state.showUpdateModal && <UpdateModal />}
-                {this.state.showMessageModal && <MessageModal  />}
-                {this.state.showSettingsModal && <SettingsModal  />}
                      
             </div>
+                {this.state.showUpdateModal && <UpdateModal closeUpdateModal= {this.closeUpdateModal}/>}
+                {this.state.showMessageModal && <MessageModal  closeMessageModal= {this.closeMessageModal}/>}
+                {this.state.showSettingsModal && <SettingsModal closeSettingsModal= {this.closeSettingsModal} />}
+        </div>
         );
     }
 };

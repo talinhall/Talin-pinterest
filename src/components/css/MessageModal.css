@@ -7,7 +7,7 @@
 .message-modal-header{
     display:flex;
     flex-direction: row;
-    margin-top:20px;
+    margin-top:60px;
 }
 .header-context{
     font-weight: 700;

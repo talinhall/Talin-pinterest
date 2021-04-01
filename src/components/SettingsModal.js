@@ -6,9 +6,17 @@ class SettingsModal extends React.Component{
     render(){
         return(
             <div className="ui modal active" >
-                <div className="content">
+                 <button 
+                        className = 'close-modal-btn'
+                        onClick = {()=>this.props.closeSettingsModal()} 
+                    >
+                        <i className="close icon"></i>
+                </button>
+               
+                <div className="settings content">
                     <div className = "message-modal-text">
                         Accounts
+                        
                     </div>
                     <button className = "settings-modal-btn">
                         Add another account
